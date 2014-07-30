@@ -1,4 +1,5 @@
 textarea,input{outline:none;}
+textarea{resize: none;}
 
 .wmd-panel
 {

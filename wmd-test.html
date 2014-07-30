@@ -8,15 +8,22 @@
 		
 		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="jquery.wmd.min.js"></script>
+		<script type="text/javascript" src="jquery.textarearesizer.min.js"></script>
+		<style type="text/css">
+		div.grippie {
+			background:#EEEEEE url(images/grippie.png) no-repeat scroll center 2px;
+			border: 1px solid #ddd;
+			border-width:0pt 1px 1px;
+			cursor:s-resize;
+			height:9px;
+			overflow:hidden;
+		}
+		</style>
 	</head>
 	
 	<body>
 	    <div style="width: 500px;">
-			<textarea id="xwmd-input" rows="5" style="width: 100%"></textarea>
-		</div>
-		
-	    <div style="width: 500px;">
-			<textarea id="ywmd-input" rows="5" style="width: 100%"></textarea>
+			<textarea id="xwmd-input" rows="5" style="width: 100%; height:200px;"></textarea>
 		</div>
 			
 		<script type="text/javascript">
@@ -27,6 +34,7 @@
 		        "helpLink": "https://github.com/Oger-Me/wmd/",
 		        "helpHoverTitle": "Markdown Help",
 		    });
+			$('#xwmd-input:not(.processed)').TextAreaResizer();
 		});
 		</script>
 	</body>
