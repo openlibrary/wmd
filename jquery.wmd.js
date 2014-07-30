@@ -1521,10 +1521,22 @@ var wmdBase = function(wmd, wmd_options){ // {{{
                 return button;
             }
             
+			var spacerIndex = 0;
             function addSpacer() {
                 var spacer = document.createElement("li");
-                spacer.className = "wmd-spacer";
+				switch(spacerIndex){
+					case 0:
+					spacer.className = "wmd-spacer wmd-spacer1";
+					break;
+					case 1:
+					spacer.className = "wmd-spacer wmd-spacer2";
+					break;
+					case 2:
+					spacer.className = "wmd-spacer wmd-spacer3";
+					break;
+				}
                 buttonRow.appendChild(spacer);
+				spacerIndex = spacerIndex + 1;
                 return spacer;
             }
             
