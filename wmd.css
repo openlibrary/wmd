@@ -32,7 +32,12 @@ textarea{resize: none;}
 
 .wmd-preview 
 { 
-	background-color: LightGray; 
+	background-color: #eee;
+	border:2px dotted #ccc;
+	min-height:10px;
+	_height:10px;
+	width:100%;
+	margin-top:10px;
 }
 
 .wmd-output 

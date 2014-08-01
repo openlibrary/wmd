@@ -24,6 +24,8 @@
 	<body>
 	    <div style="width: 500px;">
 			<textarea id="xwmd-input" rows="5" style="width: 100%; height:200px;"></textarea>
+			<div id="m_preview"></div>
+			<div id="out_html"></div>
 		</div>
 			
 		<script type="text/javascript">
@@ -31,6 +33,7 @@
 		    $("textarea").wmd({
 		        "preview": true,
 		        //"helpLink": "http://daringfireball.net/projects/markdown/",
+				output: 'out_html',
 		        "helpLink": "https://github.com/Oger-Me/wmd/",
 		        "helpHoverTitle": "Markdown Help",
 		    });
