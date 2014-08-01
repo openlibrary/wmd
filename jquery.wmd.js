@@ -1572,13 +1572,13 @@ var wmdBase = function(wmd, wmd_options){ // {{{
             
             var redo_title = null;
             
-            var redoButton = addButton("wmd-redo-button", "恢复 - Ctrl+Y");
+            var redoButton = addButton("wmd-redo-button", "重做 - Ctrl+Y");
             if (/win/.test(nav.platform.toLowerCase())) {
-                redoButton.title = "Redo - Ctrl+Y";
+                redoButton.title = "重做 - Ctrl+Y";
             }
             else {
                 // mac and other non-Windows platforms
-                redoButton.title = "Redo - Ctrl+Shift+Z";
+                redoButton.title = "重做 - Ctrl+Shift+Z";
             }
             redoButton.execute = function(manager){
                 manager.redo();
