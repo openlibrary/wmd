@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * jQuery wmd plugin.
  */
 
@@ -65,13 +65,13 @@ WMDEditor.defaults = { // {{{
     // The text that appears on the upper part of the dialog box when
     // entering links.
     imageDialogText: 
-        "<p style='margin-top: 0px'><b>ÊäÈëÍ¼Æ¬µØÖ·£º</b></p>" + 
-        "<p>Äú»¹¿ÉÒÔÎªÍ¼Æ¬Ìí¼ÓÒ»¸ö tip £¬¼´ img ÔªËØµÄ alt ÊôĞÔ¡£</p>" +
-        "<p>Ê¾Àı£º<br />http://wmd-editor.com/images/cloud1.jpg   \"¿ÉÑ¡±êÌâ\"</p>",
+        "<p style='margin-top: 0px'><b>è¾“å…¥å›¾ç‰‡åœ°å€ï¼š</b></p>" + 
+        "<p>æ‚¨è¿˜å¯ä»¥ä¸ºå›¾ç‰‡æ·»åŠ ä¸€ä¸ª tip ï¼Œå³ img å…ƒç´ çš„ alt å±æ€§ã€‚</p>" +
+        "<p>ç¤ºä¾‹ï¼š<br />http://wmd-editor.com/images/cloud1.jpg   \"å¯é€‰æ ‡é¢˜\"</p>",
     linkDialogText: 
-        "<p style='margin-top: 0px'><b>ÊäÈë Web µØÖ·£º</b></p>" + 
-        "<p>Äú»¹¿ÉÒÔÌí¼ÓÒ»¸ö±êÌâ£¬¼´ a ÔªËØµÄ title ÊôĞÔ¡£</p>" + 
-        "<p>Ê¾Àı£º<br />http://wmd-editor.com/   \"¿ÉÑ¡±êÌâ\"</p>",
+        "<p style='margin-top: 0px'><b>è¾“å…¥ Web åœ°å€ï¼š</b></p>" + 
+        "<p>æ‚¨è¿˜å¯ä»¥æ·»åŠ ä¸€ä¸ªæ ‡é¢˜ï¼Œå³ a å…ƒç´ çš„ title å±æ€§ã€‚</p>" + 
+        "<p>ç¤ºä¾‹ï¼š<br />http://wmd-editor.com/   \"å¯é€‰æ ‡é¢˜\"</p>",
 
     // The default text that appears in the dialog input box when entering
     // links.
@@ -1540,45 +1540,45 @@ var wmdBase = function(wmd, wmd_options){ // {{{
                 return spacer;
             }
             
-            var boldButton = addButton("wmd-bold-button", "¼Ó´Ö <strong> Ctrl+B", command.doBold);
-            var italicButton = addButton("wmd-italic-button", "Ğ±Ìå <em> Ctrl+I", command.doItalic);
+            var boldButton = addButton("wmd-bold-button", "åŠ ç²— <strong> Ctrl+B", command.doBold);
+            var italicButton = addButton("wmd-italic-button", "æ–œä½“ <em> Ctrl+I", command.doItalic);
             var spacer1 = addSpacer();
             
-            var linkButton = addButton("wmd-link-button", "Á´½Ó <a> Ctrl+L", function(chunk, postProcessing, useDefaultText) {
+            var linkButton = addButton("wmd-link-button", "é“¾æ¥ <a> Ctrl+L", function(chunk, postProcessing, useDefaultText) {
                 return command.doLinkOrImage(chunk, postProcessing, false);
             });        
-            var quoteButton = addButton("wmd-quote-button", "ÒıÓÃ <blockquote> Ctrl+Q", command.doBlockquote);
-            var codeButton = addButton("wmd-code-button", "´úÂëÆ¬¶Î <pre><code> Ctrl+K", command.doCode);
-            var imageButton = addButton("wmd-image-button", "Í¼Æ¬ <img> Ctrl+G", function(chunk, postProcessing, useDefaultText) {
+            var quoteButton = addButton("wmd-quote-button", "å¼•ç”¨ <blockquote> Ctrl+Q", command.doBlockquote);
+            var codeButton = addButton("wmd-code-button", "ä»£ç ç‰‡æ®µ <pre><code> Ctrl+K", command.doCode);
+            var imageButton = addButton("wmd-image-button", "å›¾ç‰‡ <img> Ctrl+G", function(chunk, postProcessing, useDefaultText) {
                 return command.doLinkOrImage(chunk, postProcessing, true);
             });
             
             var spacer2 = addSpacer();
 
-            var olistButton = addButton("wmd-olist-button", "Êı×ÖÁĞ±í <ol> Ctrl+O", function(chunk, postProcessing, useDefaultText) {
+            var olistButton = addButton("wmd-olist-button", "æ•°å­—åˆ—è¡¨ <ol> Ctrl+O", function(chunk, postProcessing, useDefaultText) {
                 command.doList(chunk, postProcessing, true, useDefaultText);
             });
-            var ulistButton = addButton("wmd-ulist-button", "ÆÕÍ¨ÁĞ±í <ul> Ctrl+U", function(chunk, postProcessing, useDefaultText) {
+            var ulistButton = addButton("wmd-ulist-button", "æ™®é€šåˆ—è¡¨ <ul> Ctrl+U", function(chunk, postProcessing, useDefaultText) {
                 command.doList(chunk, postProcessing, false, useDefaultText);
             });
-            var headingButton = addButton("wmd-heading-button", "±êÌâ <h1>/<h2> Ctrl+H", command.doHeading);
-            var hrButton = addButton("wmd-hr-button", "·Ö¸ôÏß <hr> Ctrl+R", command.doHorizontalRule);
+            var headingButton = addButton("wmd-heading-button", "æ ‡é¢˜ <h1>/<h2> Ctrl+H", command.doHeading);
+            var hrButton = addButton("wmd-hr-button", "åˆ†éš”çº¿ <hr> Ctrl+R", command.doHorizontalRule);
             var spacer3 = addSpacer();
             
-            var undoButton = addButton("wmd-undo-button", "³·Ïû - Ctrl+Z");
+            var undoButton = addButton("wmd-undo-button", "æ’¤æ¶ˆ - Ctrl+Z");
             undoButton.execute = function(manager){
                 manager.undo();
             };
             
             var redo_title = null;
             
-            var redoButton = addButton("wmd-redo-button", "ÖØ×ö - Ctrl+Y");
+            var redoButton = addButton("wmd-redo-button", "é‡åš - Ctrl+Y");
             if (/win/.test(nav.platform.toLowerCase())) {
-                redoButton.title = "ÖØ×ö - Ctrl+Y";
+                redoButton.title = "é‡åš - Ctrl+Y";
             }
             else {
                 // mac and other non-Windows platforms
-                redoButton.title = "ÖØ×ö - Ctrl+Shift+Z";
+                redoButton.title = "é‡åš - Ctrl+Shift+Z";
             }
             redoButton.execute = function(manager){
                 manager.redo();
