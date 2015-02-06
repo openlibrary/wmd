@@ -29,7 +29,7 @@
 		    // When wrapping the text area, work around an IE margin bug.  See:
 		    // http://jaspan.com/ie-inherited-margin-bug-form-elements-and-haslayout
 		    $(this).wrap('<div class="resizable-textarea"><span></span></div>')
-		      .parent().append($('<div class="grippie"></div>').bind("mousedown",{el: this} , startDrag));
+		      .parent().append($('<div class="grippie" title="调整大小"></div>').bind("mousedown",{el: this} , startDrag));
 
 		    var grippie = $('div.grippie', $(this).parent())[0];
 		    grippie.style.marginRight = (grippie.offsetWidth - $(this)[0].offsetWidth) +'px';
