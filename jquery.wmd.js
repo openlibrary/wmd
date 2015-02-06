@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jQuery wmd plugin.
  */
 
@@ -65,13 +65,13 @@ WMDEditor.defaults = { // {{{
     // The text that appears on the upper part of the dialog box when
     // entering links.
     imageDialogText: 
-        "<p style='margin-top: 0px'><b>Enter the image URL.</b></p>" + 
-        "<p>You can also add a title, which will be displayed as a tool tip.</p>" +
-        "<p>Example:<br />http://wmd-editor.com/images/cloud1.jpg   \"Optional title\"</p>",
+        "<p style='margin-top: 0px'><b>输入图片地址：</b></p>" + 
+        "<p>您还可以为图片添加一个 tip ，即 img 元素的 alt 属性。</p>" +
+        "<p>示例：<br />http://wmd-editor.com/images/cloud1.jpg   \"可选标题\"</p>",
     linkDialogText: 
-        "<p style='margin-top: 0px'><b>Enter the web address.</b></p>" + 
-        "<p>You can also add a title, which will be displayed as a tool tip.</p>" + 
-        "<p>Example:<br />http://wmd-editor.com/   \"Optional title\"</p>",
+        "<p style='margin-top: 0px'><b>输入 Web 地址：</b></p>" + 
+        "<p>您还可以添加一个标题，即 a 元素的 title 属性。</p>" + 
+        "<p>示例：<br />http://wmd-editor.com/   \"可选标题\"</p>",
 
     // The default text that appears in the dialog input box when entering
     // links.
@@ -1295,7 +1295,7 @@ var UndoManager = function(textarea, pastePollInterval, callback){ // {{{
 WMDEditor.util = util;
 WMDEditor.position = position;
 WMDEditor.TextareaState = TextareaState;
-WMDEditor.Checks = Checks;
+WMDEditor.Chunks = Chunks;
 WMDEditor.InputPoller = InputPoller;
 WMDEditor.PreviewManager = PreviewManager;
 WMDEditor.UndoManager = UndoManager;
@@ -1521,52 +1521,64 @@ var wmdBase = function(wmd, wmd_options){ // {{{
                 return button;
             }
             
+			var spacerIndex = 0;
             function addSpacer() {
                 var spacer = document.createElement("li");
-                spacer.className = "wmd-spacer";
+				switch(spacerIndex){
+					case 0:
+					spacer.className = "wmd-spacer wmd-spacer1";
+					break;
+					case 1:
+					spacer.className = "wmd-spacer wmd-spacer2";
+					break;
+					case 2:
+					spacer.className = "wmd-spacer wmd-spacer3";
+					break;
+				}
                 buttonRow.appendChild(spacer);
+				spacerIndex = spacerIndex + 1;
                 return spacer;
             }
             
-            var boldButton = addButton("wmd-bold-button", "Strong <strong> Ctrl+B", command.doBold);
-            var italicButton = addButton("wmd-italic-button", "Emphasis <em> Ctrl+I", command.doItalic);
+            var boldButton = addButton("wmd-bold-button", "加粗 <strong> Ctrl+B", command.doBold);
+            var italicButton = addButton("wmd-italic-button", "斜体 <em> Ctrl+I", command.doItalic);
             var spacer1 = addSpacer();
             
-            var linkButton = addButton("wmd-link-button", "Hyperlink <a> Ctrl+L", function(chunk, postProcessing, useDefaultText) {
+            var linkButton = addButton("wmd-link-button", "链接 <a> Ctrl+L", function(chunk, postProcessing, useDefaultText) {
                 return command.doLinkOrImage(chunk, postProcessing, false);
             });        
-            var quoteButton = addButton("wmd-quote-button", "Blockquote <blockquote> Ctrl+Q", command.doBlockquote);
-            var codeButton = addButton("wmd-code-button", "Code Sample <pre><code> Ctrl+K", command.doCode);
-            var imageButton = addButton("wmd-image-button", "Image <img> Ctrl+G", function(chunk, postProcessing, useDefaultText) {
+            var quoteButton = addButton("wmd-quote-button", "引用 <blockquote> Ctrl+Q", command.doBlockquote);
+            var codeButton = addButton("wmd-code-button", "代码片段 <pre><code> Ctrl+K", command.doCode);
+            var imageButton = addButton("wmd-image-button", "图片 <img> Ctrl+G", function(chunk, postProcessing, useDefaultText) {
                 return command.doLinkOrImage(chunk, postProcessing, true);
             });
             
             var spacer2 = addSpacer();
 
-            var olistButton = addButton("wmd-olist-button", "Numbered List <ol> Ctrl+O", function(chunk, postProcessing, useDefaultText) {
+            var olistButton = addButton("wmd-olist-button", "数字列表 <ol> Ctrl+O", function(chunk, postProcessing, useDefaultText) {
                 command.doList(chunk, postProcessing, true, useDefaultText);
             });
-            var ulistButton = addButton("wmd-ulist-button", "Bulleted List <ul> Ctrl+U", function(chunk, postProcessing, useDefaultText) {
+            var ulistButton = addButton("wmd-ulist-button", "普通列表 <ul> Ctrl+U", function(chunk, postProcessing, useDefaultText) {
                 command.doList(chunk, postProcessing, false, useDefaultText);
             });
-            var headingButton = addButton("wmd-heading-button", "Heading <h1>/<h2> Ctrl+H", command.doHeading);
-            var hrButton = addButton("wmd-hr-button", "Horizontal Rule <hr> Ctrl+R", command.doHorizontalRule);
+            var headingButton = addButton("wmd-heading-button", "标题 <h1>/<h2> Ctrl+H", command.doHeading);
+            var hrButton = addButton("wmd-hr-button", "分隔线 <hr> Ctrl+R", command.doHorizontalRule);
             var spacer3 = addSpacer();
             
-            var undoButton = addButton("wmd-undo-button", "Undo - Ctrl+Z");
+            var undoButton = addButton("wmd-undo-button", "撤消 - Ctrl+Z");
             undoButton.execute = function(manager){
                 manager.undo();
             };
             
             var redo_title = null;
             
-            var redoButton = addButton("wmd-redo-button", "Redo - Ctrl+Y");
+            var redoButton = addButton("wmd-redo-button", "重做 - Ctrl+Y");
             if (/win/.test(nav.platform.toLowerCase())) {
-                redoButton.title = "Redo - Ctrl+Y";
+                redoButton.title = "重做 - Ctrl+Y";
             }
             else {
                 // mac and other non-Windows platforms
-                redoButton.title = "Redo - Ctrl+Shift+Z";
+                redoButton.title = "重做 - Ctrl+Shift+Z";
             }
             redoButton.execute = function(manager){
                 manager.redo();

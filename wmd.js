@@ -1,4 +1,4 @@
-;(function() {
+﻿;(function() {
     
 WMDEditor = function(options) {
     this.options = WMDEditor.util.extend({}, WMDEditor.defaults, options || {});

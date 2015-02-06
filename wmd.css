@@ -1,3 +1,5 @@
+﻿textarea,input{outline:none;}
+textarea{resize: none; font-size:14px; line-height:22px;}
 
 .wmd-panel
 {
@@ -30,7 +32,14 @@
 
 .wmd-preview 
 { 
-	background-color: LightGray; 
+	background-color: #eee;
+	border:2px dotted #ccc;
+	min-height:10px;
+	_height:10px;
+	width:100%;
+	margin-top:10px;
+	font-size:14px;
+	line-height:22px;
 }
 
 .wmd-output 
