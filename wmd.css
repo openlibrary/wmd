@@ -1,5 +1,5 @@
-textarea,input{outline:none;}
-textarea{resize: none;}
+﻿textarea,input{outline:none;}
+textarea{resize: none; font-size:14px; line-height:22px;}
 
 .wmd-panel
 {
@@ -38,6 +38,8 @@ textarea{resize: none;}
 	_height:10px;
 	width:100%;
 	margin-top:10px;
+	font-size:14px;
+	line-height:22px;
 }
 
 .wmd-output 

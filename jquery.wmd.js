@@ -65,9 +65,9 @@ WMDEditor.defaults = { // {{{
     // The text that appears on the upper part of the dialog box when
     // entering links.
     imageDialogText: 
-        "<p style='margin-top: 0px'><b>Enter the image URL.</b></p>" + 
-        "<p>You can also add a title, which will be displayed as a tool tip.</p>" +
-        "<p>Example:<br />http://wmd-editor.com/images/cloud1.jpg   \"Optional title\"</p>",
+        "<p style='margin-top: 0px'><b>输入图片地址：</b></p>" + 
+        "<p>你还可以为图片添加一个 tip ，即 alt 属性。</p>" +
+        "<p>示例：<br />http://wmd-editor.com/images/cloud1.jpg   \"可选标题\"</p>",
     linkDialogText: 
         "<p style='margin-top: 0px'><b>Enter the web address.</b></p>" + 
         "<p>You can also add a title, which will be displayed as a tool tip.</p>" + 
